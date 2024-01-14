@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -45,16 +47,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ColumnScope.ColumnLayout() {
+//fun ColumnScope.ColumnLayout() {
+fun ColumnLayout() {
     Column(
-        modifier = Modifier.weight(1F),
+        //modifier = Modifier.weight(1F),
         //verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text("Column 첫 번째",
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1F)
                 .background(Color(0xFFAA1803))
                 .padding(8.dp)
                 .wrapContentHeight(Alignment.CenterVertically),
@@ -64,7 +66,6 @@ fun ColumnScope.ColumnLayout() {
         )
         Text("Column 두 번째",
             modifier = Modifier
-                .weight(1F)
                 .background(Color(0xFF6D8C00))
                 .padding(8.dp)
                 .wrapContentHeight(Alignment.CenterVertically),
@@ -73,7 +74,6 @@ fun ColumnScope.ColumnLayout() {
         )
         Text("Column 세 번째",
             modifier = Modifier
-                .weight(1F)
                 .background(Color(0xFFBD613C))
                 .padding(8.dp)
                 .wrapContentHeight(Alignment.CenterVertically),
@@ -84,29 +84,36 @@ fun ColumnScope.ColumnLayout() {
 }
 
 @Composable
-fun RowLayout() {
-    Row {
+fun ColumnScope.RowLayout() {
+    Row(
+        modifier = Modifier
+            .weight(1F)
+            .fillMaxWidth()
+            .background(Color(0xFFF1BAA1)),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
         Text("하나",
             modifier = Modifier
-                .weight(1F)
+                .fillMaxHeight()
                 .background(Color(0xFFAA1803))
-                .padding(8.dp),
+                .padding(8.dp)
+                .wrapContentHeight(Alignment.CenterVertically),
             color = Color(0xFFF1BAA1),
             fontSize = 30.sp,
-            textAlign = TextAlign.Center,
+            //textAlign = TextAlign.Center,
         )
         Text("둘",
             modifier = Modifier
-                .weight(1F)
                 .background(Color(0xFF6D8C00))
                 .padding(8.dp),
             color = Color(0xFFF1BAA1),
             fontSize = 30.sp,
-            textAlign = TextAlign.Center,
+            //textAlign = TextAlign.Center,
         )
         Text("셋",
             modifier = Modifier
-                .weight(1F)
+                .width(150.dp)
                 .background(Color(0xFFBD613C))
                 .padding(8.dp),
             color = Color(0xFFF1BAA1),
